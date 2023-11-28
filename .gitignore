@@ -72,3 +72,17 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# UnrealEngine Generated Files
+*/Build
+*/Binaries
+*/DerivedDataCache
+*/Intermediate
+*/Saved
+
+RealGameProject.VC.db
+Content/StarterContent
+*/Content/StarterContent
+
+# Rider ignore
+.idea
