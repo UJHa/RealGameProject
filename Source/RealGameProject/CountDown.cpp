@@ -7,7 +7,7 @@
 // Sets default values
 ACountDown::ACountDown()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 	CountdownText = CreateDefaultSubobject<UTextRenderComponent>(TEXT("CountdownNumber"));
 	CountdownText->SetHorizontalAlignment(EHTA_Center);
@@ -44,13 +44,8 @@ void ACountDown::AdvanceTimer()
 	if (CountdownTime < 1)
 	{
 		GetWorldTimerManager().ClearTimer(CountdownTimerHandle);
-		CountdownHasFinihsed();
+		CountdownHasFinished();
 	}
-}
-
-void ACountDown::CountdownHasFinished()
-{
-	
 }
 
 void ACountDown::CountdownHasFinished_Implementation()
