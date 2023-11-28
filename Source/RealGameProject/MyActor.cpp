@@ -2,6 +2,7 @@
 
 
 #include "MyActor.h"
+#include "RealGameProject.h"
 
 // Sets default values
 AMyActor::AMyActor()
@@ -27,6 +28,14 @@ void AMyActor::BeginPlay()
 {
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Log, TEXT("BeginPlay"));
+	UE_LOG(LogTemp, Error, TEXT("Error Test"));
+	UE_LOG(LogTemp, Warning, TEXT("Warning Test"));
+	UE_LOG(LogTemp, Display, TEXT("Display Test"));
+	UE_LOG(MyLogCategory, Log, TEXT("MyLogCategory Test"));
+	
+	UE_LOG(MyLogCategory, Log, TEXT("str Name = %s"), *str);
+
+	UE_LOG(MyLogCategory, Log, TEXT("str Name = %s, TotalDamage = %d, DamageTimeInSeconds = %f"), *str, TotalDamage, DamageTimeInSeconds);
 	CallFromCpp();
 }
 
@@ -34,7 +43,7 @@ void AMyActor::BeginPlay()
 void AMyActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	UE_LOG(LogTemp, Log, TEXT("Tick"));
+	//UE_LOG(LogTemp, Log, TEXT("Tick"));
 
 }
 

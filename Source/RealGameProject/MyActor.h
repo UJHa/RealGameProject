@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+// generated.h 위에 추가 헤더파일 추가하기
 #include "MyActor.generated.h"
 
 UCLASS()
