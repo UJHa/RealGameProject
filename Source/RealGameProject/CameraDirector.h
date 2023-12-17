@@ -6,6 +6,19 @@
 #include "GameFramework/Actor.h"
 #include "CameraDirector.generated.h"
 
+USTRUCT(Atomic, BlueprintType)
+struct FChangeCameraData
+{
+	GENERATED_USTRUCT_BODY();
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		AActor* Camera;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float TimeBetweenCameraChanges;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float SmoothBlendTime;
+};
+
 UCLASS()
 class REALGAMEPROJECT_API ACameraDirector : public AActor
 {
@@ -24,9 +37,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere)
-	AActor* CameraOne;
-	UPROPERTY(EditAnywhere)
-	AActor* CameraTwo;
+	TArray<FChangeCameraData> Cameras;
+
+	int32 NowCameraIndex;
+
 	UPROPERTY(EditAnywhere)
 	float TimeToNextCameraChange;
 

@@ -11,6 +11,7 @@ ADoor::ADoor()
 
 	DoorMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Door Mesh"));
 	RootComponent = DoorMesh;
+	OpenTime = 3.0f;
 	CloseTime = 3.0f;
 }
 
@@ -66,6 +67,7 @@ void ADoor::Close()
 	if (DoorDeltaTime > 1.0f)
 	{
 		GetWorldTimerManager().ClearTimer(DoorTimerHandle);
+		GetWorldTimerManager().SetTimer(DoorTimerHandle, this, &ADoor::Open, 0.03f, true, OpenTime);
 	}
 }
 

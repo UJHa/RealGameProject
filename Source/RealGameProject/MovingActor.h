@@ -4,17 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Components/StaticMeshComponent.h"
-#include "Door.generated.h"
+#include "MovingActor.generated.h"
 
 UCLASS()
-class REALGAMEPROJECT_API ADoor : public AActor
+class REALGAMEPROJECT_API AMovingActor : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ADoor();
+	AMovingActor();
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,20 +23,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere)
-	UStaticMeshComponent* DoorMesh;
+	float Timer;
 
-	float OpenTime;
-	float CloseTime;
-
-	float DoorDeltaTime;
-
-	bool bOpen;
-
-	FTimerHandle DoorTimerHandle;
-
-	FRotator OriginRotation;
-
-	void Open();
-	void Close();
 };
